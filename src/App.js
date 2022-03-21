@@ -18,9 +18,12 @@ function App() {
       });
     });
   };
+
+  const subtitle= "All the latest events in MarioLand"
   return (
     <div className="App">
-      <Title />
+      <Title title="Events in Your Area" subtitle={subtitle} />
+      
       {showEvents && (
         <div>
         <button onClick={() => setShowEvents(false)}>Hide Events</button>
