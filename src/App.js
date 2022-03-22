@@ -41,10 +41,7 @@ function App() {
         </div>
       )}
 
-      {showEvents && 
-        <EventList events={events} handleClick={handleClick}/>
-       
-        } 
+      {showEvents && <EventList events={events} handleClick={handleClick} />}
       {/* <Modal>
             <h2>10% Off Coupon Code!!</h2>
             <p>Use the code NINJA10 at the checkout.</p>
@@ -53,7 +50,7 @@ function App() {
       <button onClick={() => setShowModal(true)}>Show Modal</button>
 
       {showModal && (
-        <Modal handleClose={handleClose} isSalesModal={false}>
+        <Modal handleClose={handleClose} isSalesModal={true}>
           <h2>All feature is here</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
@@ -61,9 +58,7 @@ function App() {
             impedit dolores? Assumenda, perspiciatis? Quibusdam ullam quia quos
             error ea cumque, aperiam dicta?
           </p>
-          <a href="#" onClick={handleClose}>
-            <b>Click For More!</b>
-          </a>
+          
         </Modal>
       )}
     </div>
