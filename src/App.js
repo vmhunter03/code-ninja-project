@@ -2,6 +2,7 @@ import "./App.css";
 import { useState } from "react";
 import Title from "./components/Title";
 import Modal from "./components/Modal";
+import EventList from "./components/EventList";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -14,8 +15,8 @@ function App() {
   const handleClose = () => {
     setShowModal(false);
   };
-  
-  console.log(showModal)
+
+  console.log(showModal);
   const handleClick = (id) => {
     setEvents((prevEvents) => {
       return prevEvents.filter((event) => {
@@ -40,34 +41,31 @@ function App() {
         </div>
       )}
 
-      {showEvents &&
-        events.map((event, index) => (
-          <div key={event.id}>
-            <h2>
-              {index} - {event.title}
-            </h2>
-            <button onClick={() => handleClick(event.id)}>Delete Event</button>
-          </div>
-        ))}
+      {showEvents && 
+        <EventList events={events} handleClick={handleClick}/>
+       
+        } 
       {/* <Modal>
             <h2>10% Off Coupon Code!!</h2>
             <p>Use the code NINJA10 at the checkout.</p>
       </Modal> */}
       <br />
       <button onClick={() => setShowModal(true)}>Show Modal</button>
-      
-      {showModal && <Modal handleClose={handleClose}>
-        <h2>All feature is here</h2>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
-          totam sunt distinctio excepturi iusto necessitatibus. Quos ab impedit
-          dolores? Assumenda, perspiciatis? Quibusdam ullam quia quos error ea
-          cumque, aperiam dicta?
-        </p>
-        <a href="#" onClick={handleClose}>
-          <b>Click For More!</b>
-        </a>
-      </Modal>}
+
+      {showModal && (
+        <Modal handleClose={handleClose}>
+          <h2>All feature is here</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+            totam sunt distinctio excepturi iusto necessitatibus. Quos ab
+            impedit dolores? Assumenda, perspiciatis? Quibusdam ullam quia quos
+            error ea cumque, aperiam dicta?
+          </p>
+          <a href="#" onClick={handleClose}>
+            <b>Click For More!</b>
+          </a>
+        </Modal>
+      )}
     </div>
   );
 }
