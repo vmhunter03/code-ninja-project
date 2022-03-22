@@ -4,7 +4,7 @@ import Title from "./components/Title";
 import Modal from "./components/Modal";
 
 function App() {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
   const [events, setEvents] = useState([
     { title: "mario's birthday bash", id: 1 },
@@ -14,6 +14,7 @@ function App() {
   const handleClose = () => {
     setShowModal(false);
   };
+  
   console.log(showModal)
   const handleClick = (id) => {
     setEvents((prevEvents) => {
@@ -52,6 +53,9 @@ function App() {
             <h2>10% Off Coupon Code!!</h2>
             <p>Use the code NINJA10 at the checkout.</p>
       </Modal> */}
+      <br />
+      <button onClick={() => setShowModal(true)}>Show Modal</button>
+      
       {showModal && <Modal handleClose={handleClose}>
         <h2>All feature is here</h2>
         <p>
