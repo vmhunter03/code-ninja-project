@@ -1,13 +1,13 @@
 import ReactDOM from "react-dom";
 import "./Modal.css";
-function Modal({ children }) {
+function Modal({ children, isSalesModal }) {
   return ReactDOM.createPortal(
     <div className="modal-backdrop">
       <div
         className="modal"
         style={{
           border: "4px solid",
-          borderColor: "#ff4500",
+          borderColor: isSalesModal ? "#ff4500" : "#555",
           textAlign: "center",
         }}
       >

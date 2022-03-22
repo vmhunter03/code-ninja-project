@@ -53,7 +53,7 @@ function App() {
       <button onClick={() => setShowModal(true)}>Show Modal</button>
 
       {showModal && (
-        <Modal handleClose={handleClose}>
+        <Modal handleClose={handleClose} isSalesModal={false}>
           <h2>All feature is here</h2>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
