@@ -16,7 +16,7 @@ function Modal({ children, isSalesModal, handleClose }) {
             onClick={handleClose}
             className={isSalesModal ? "sales-btn" : ""}
           >
-            <b>Click For More!</b>
+            <b>Close</b>
           </button>
       </div>
     </div>,
