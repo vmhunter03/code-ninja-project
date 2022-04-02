@@ -8,16 +8,16 @@ import NewEventForm from "./components/NewEventForm";
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [showEvents, setShowEvents] = useState(true);
-  const [events, setEvents] = useState([
-    { title: "mario's birthday bash", id: 1 },
-    { title: "bowser's live stream", id: 2 },
-    { title: "race on moo moo farm", id: 3 },
-  ]);
-  const handleClose = () => {
-    setShowModal(false);
-  };
+  const [events, setEvents] = useState([]);
 
-  console.log(showModal);
+  const addEvent = (event) => {
+    setEvents((prevEvents) => {
+      return [...prevEvents, event]
+    })
+    setShowModal(false)
+  }
+
+
   const handleClick = (id) => {
     setEvents((prevEvents) => {
       return prevEvents.filter((event) => {
@@ -48,11 +48,10 @@ function App() {
             <p>Use the code NINJA10 at the checkout.</p>
       </Modal> */}
       <br />
-      <button onClick={() => setShowModal(true)}>Show Modal</button>
 
       {showModal && (
-        <Modal handleClose={handleClose} isSalesModal={true}>
-          <NewEventForm />
+        <Modal isSalesModal={true}>
+          <NewEventForm addEvent={addEvent}/>
           
         </Modal>
       )}
